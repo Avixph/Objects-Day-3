@@ -17,20 +17,25 @@ class Rectangle {
    * @return {boolean} true if the rectangle is a square
    */
   isSquare() {
-    
+    return this.width === this.length;
   }
 
   /**
    * calculates the area of the rectangle
    * @return {number} the area of the rectangle
    */
-  area() {}
+  area() {
+    return this.length * this.width;
+  }
 
   /**
    * calculates the perimeter of the rectangle.
    * @returns {number} the perimeter of the rectangle
    */
-  perimeter() {}
+  perimeter() {
+    // return 2*(this.length + this.width);
+    return 2 * this.length + 2 * this.width;
+  }
 }
 
 /**
@@ -52,26 +57,49 @@ class Triangle {
    * @returns {boolean} true if the triangle is equilateral
    * @see http://en.wikipedia.org/wiki/Equilateral_triangle
    */
-  isEquilateral() {}
+  isEquilateral() {
+    return this.sideA === this.sideB && this.sideB === this.sideC;
+    // if (this.sideA != this.sideB && this.sideB != this.sideC) {
+    //   return false;
+    // }
+    // return true;
+  }
 
   /**
    * @returns {boolean} true if the triangle is isosceles
    * @see http://en.wikipedia.org/wiki/Isosceles_triangle#By_relative_lengths_of_sides
    */
-  isIsosceles() {}
+  isIsosceles() {
+    return (
+      this.sideA === this.sideB ||
+      this.sideA === this.sideC ||
+      this.sideB === this.sideC
+    );
+  }
 
   /**
    * @returns {boolean} true if the triangle is obtuse
    * @see http://en.wikipedia.org/wiki/Isosceles_triangle#By_internal_angles
    */
-  isObtuse() {}
+  isObtuse() {
+    return (
+      Math.pow(this.sideA, 2) + Math.pow(this.sideB, 2) <
+        Math.pow(this.sideC, 2) ||
+      Math.pow(this.sideB, 2) + Math.pow(this.sideC, 2) <
+        Math.pow(this.sideA, 2) ||
+      Math.pow(this.sideC, 2) + Math.pow(this.sideA, 2) >
+        Math.pow(this.sideB, 2)
+    );
+  }
 
   /**
    * calculates the area of the Triangle
    * @returns {number} the area of the Triangle
    * @see http://en.wikipedia.org/wiki/Heron%27s_formula
    */
-  area() {}
+  area() {
+    return (this.sideA + this.sideB + this.sideC) / 2;
+  }
 }
 
 /**
@@ -93,7 +121,9 @@ class LineSegment {
    * @returns {number} the length of the line segment
    * @see http://en.wikipedia.org/wiki/Pythagorean_theorem
    */
-  length() {}
+  length() {
+    return Math.sqrt(this.start + this.end);
+  }
 }
 
 // NOTE: DO NOT REMOVE OR ALTER
