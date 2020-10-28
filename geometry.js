@@ -122,7 +122,16 @@ class LineSegment {
    * @see http://en.wikipedia.org/wiki/Pythagorean_theorem
    */
   length() {
-    return Math.sqrt(this.start + this.end);
+    let xDiff = this.start.x - this.end.x;
+    let yDiff = this.start.y - this.end.y;
+
+    // return Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
+    return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    // return Math.sqrt(Math.pow(this.start, 2) + Math.pow(this.end, 2));
+    // return Math.sqrt(
+    //   Math.pow(this.start.x - this.start.y, 2) +
+    //     Math.pow(this.end.x - this.end.y, 2)
+    // );
   }
 }
 
